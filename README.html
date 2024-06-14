@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Bonsai Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Bonsai Documentation ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/bonsai-rx/docs/blob/main/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="bonsai-documentation">Bonsai Documentation</h1>
+
+<p>This repo contains the technical reference manual for the Bonsai visual programming language, in addition to articles and examples that document the collective knowledge of the Bonsai user community.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This repo hosts the documentation for the base Bonsai library. Documentation for each new Bonsai package will be hosted in its own repo, for instance, <a href="https://github.com/bonsai-rx/machinelearning">https://github.com/bonsai-rx/machinelearning</a>. The instructions below apply to both documentation for the base Bonsai library as well as new packages.</p>
+</div>
+<p>Documentation is built using DocFx, a static site generator that automatically generates API documentation for .NET projects, and deployed using Github Actions on Github Pages.</p>
+<h1 id="would-you-like-to-contribute-to-documentation">Would you like to contribute to documentation?</h1>
+<h2 id="contributing-to-existing-documentation">Contributing to existing documentation</h2>
+<p>These instructions apply to repos that already have a DocFx website created.</p>
+<ol>
+<li>Fork the <code>main</code> branch of the repository you want to contribute documentation to.</li>
+<li>Download and install the latest stable version of <a href="https://dotnet.github.io/docfx/index.html">DocFx</a> (currently 2.75.3).</li>
+<li>In a Windows Powershell, use the command <code>docfx docfx.json --serve</code> to generate a local preview of the documentation website as you <a href="#creating-and-editing-articles">make changes</a>.</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Occasionally, we run into weird bugs with the local preview. Check if the error persists by <a href="#publishing-to-github-pages">publishing your fork online</a></p>
+</div>
+<ol start="4">
+<li>When you are ready to have your contribution reviewed, commit your edits to the approriate branch of your fork and create a pull request to merge that branch with the <code>main</code> branch of the original repo.</li>
+<li>Community members will be assigned to review the PR and @glopesdev will conduct the final review and quality control check. If the contribution passes this final step, the PR to merge with <code>main</code> will be approved and the contribution will be published.</li>
+</ol>
+<h2 id="setting-up-new-documentation">Setting up new documentation</h2>
+<p>For packages without existing documentation, a new DocFx website needs to be initialized.</p>
+<ol>
+<li>In Windows Powershell, setup a local installation of DocFx in the repo with the following commands (executed in the root directory of the repo).</li>
+</ol>
+<pre><code class="lang-powershell">dotnet new tool-manifest 
+dotnet tool install --local docfx --version 2.75.3
+</code></pre>
+<ol start="2">
+<li>Create a new <code>docs</code> folder to host the documentation files. Navigate to the folder and initialise a new DocFx website with the following command.</li>
+</ol>
+<pre><code class="lang-powershell">dotnet docfx init 
+</code></pre>
+<ol start="3">
+<li>Select these options for the new website.</li>
+</ol>
+<pre><code class="lang-powershell">Name (mysite): Bonsai - Package Name
+Generate .NET API documentation? [y/n] (y): y
+.NET projects location (src): src
+Markdown docs location (docs): articles
+Enable site search? [y/n] (y): y
+Enable PDF? [y/n] (y): n
+</code></pre>
+<p>This creates a docfx.json file in the &quot;docs&quot; folder that hosts the configuration options for the website.</p>
+<ol start="4">
+<li>Configure docfx.json - the parameters to be changed can be copied over from the docfx.json in a repo that has been recently updated (for instance <a href="https://bonsai-rx.org/machinelearning/">https://bonsai-rx.org/machinelearning/</a>).</li>
+</ol>
+<p>Add the <code>filter</code> attribute to filter out obsolete nodes in the package from the documentation that have been included for compatibility purposes (but are no longer supported).</p>
+<pre><code class="lang-yml">&quot;metadata&quot;: [
+    {
+        &quot;filter&quot;: &quot;filter.yml&quot;
+    }
+]
+</code></pre>
+<p>Exclude the <code>filter.yml</code> from being included in the building of content.</p>
+<pre><code class="lang-yml">&quot;build&quot;: {
+    &quot;content&quot;: [
+        {
+        &quot;exclude&quot;: [
+            &quot;_site/**&quot;,
+            &quot;filter.yml&quot;
+        ]
+        }
+    ]
+}
+</code></pre>
+<p>List any additional files/folders that are to be used in the doc in the <code>resource</code> attribute.</p>
+<pre><code class="lang-yml">&quot;build&quot;: {
+    &quot;resource&quot;: {
+        &quot;files&quot;: [
+            &quot;logo.svg&quot;,
+            &quot;favicon.ico&quot;,
+            &quot;images/**&quot;,
+            &quot;workflows/**&quot;
+        ]
+    }
+}
+</code></pre>
+<p>Add the <code>overwrite</code> attribute to enable individual operator articles stored in the <code>apidocs</code> folder to be included in articles and API docs.</p>
+<pre><code class="lang-yml">&quot;build&quot;: {
+    &quot;overwrite&quot;: [
+      {
+        &quot;files&quot;: [
+          &quot;apidoc/**.md&quot;
+        ],
+        &quot;exclude&quot;: [
+          &quot;obj/**&quot;,
+          &quot;_site/**&quot;
+        ]
+      }
+    ],
+}
+</code></pre>
+<p>Modify the <code>template</code> attribute to use the modern template and apply custom templates to enable workflow containers.</p>
+<pre><code class="lang-yml">&quot;template&quot;: [
+    &quot;default&quot;,
+    &quot;modern&quot;,
+    &quot;bonsai/template&quot;,
+    &quot;template&quot;
+]
+</code></pre>
+<p>Change PackageName and github link to the repo being worked on and add footer information to the <code>globalMetadata</code> attribute.</p>
+<pre><code class="lang-yml">&quot;globalMetadata&quot;: {
+    &quot;_appName&quot;: &quot;Bonsai - PackageName&quot;,
+    &quot;_appTitle&quot;: &quot;Bonsai.PackageName&quot;,
+    &quot;_appFooter&quot;: &quot;&amp;copy; 2024 Bonsai Foundation CIC and Contributors. Made with &lt;a href=\&quot;https://dotnet.github.io/docfx\&quot;&gt;docfx&lt;/a&gt;&quot;,
+    &quot;_gitContribute&quot;: {
+        &quot;repo&quot;: &quot;https://github.com/bonsai-rx/PackageName&quot;,
+        &quot;branch&quot;: &quot;main&quot;,
+        &quot;apiSpecFolder&quot;: &quot;apidoc&quot;
+    }
+}
+</code></pre>
+<p>Enable additional markdig (the default DocFX markdown processor) extensions.</p>
+<pre><code class="lang-yml">&quot;build&quot;: {
+    &quot;markdownEngineProperties&quot;: {
+        &quot;markdigExtensions&quot;: [
+        &quot;attributes&quot;,
+        &quot;customcontainers&quot;
+        ]
+    }
+}
+</code></pre>
+<p>Add a <code>xref</code> attribute to cross reference operators and properties across the different Bonsai docs websites.</p>
+<pre><code class="lang-yml">&quot;build&quot;: {
+    &quot;xref&quot;: [
+        &quot;https://bonsai-rx.org/docs/xrefmap.yml&quot;,
+        &quot;https://horizongir.github.io/reactive/xrefmap.yml&quot;
+    ]
+}
+</code></pre>
+<ol start="5">
+<li>In the &quot;docs&quot; folder, create these folders to host various contents that will go into the docs.</li>
+</ol>
+<pre><code class="lang-markdown">- articles - markdown files for various articles that will go into the `Manual`.
+- apidoc - markdown files for individual Bonsai operators to be included in articles or `Reference`.
+- images - images for the website.
+- workflows - .bonsai files for example workflows. 
+</code></pre>
+<ol start="6">
+<li>Copy over these folders/files from a repo that has been recently updated into the root folder of the repo. Amend the files as necessary.</li>
+</ol>
+<pre><code class="lang-markdown">- .github folder - contains a workflows/docs.yml file that is a Github Actions workflow recipe.
+    - Make sure that it is updated to the latest version and change the package name parameters.
+
+- .bonsai folder - files necessary to build a Bonsai environment on Github Actions.
+    - The config.yml file in the .bonsai folder needs to be amended to include any packages 
+    that are necessary for running the SVG export for sample Bonsai workflows (see section below)
+    - The new Bonsai package itself does not need to be included.
+
+- .gitignore file - this needs to be updated to ignore workflow files (i.e. .bonsai packages env).
+</code></pre>
+<ol start="7">
+<li>Copy over these folders/files from a repo that has been recently updated into the &quot;docs&quot; folder.</li>
+</ol>
+<pre><code class="lang-markdown">- docs/filter.yml file - filters out obsolete operators from being included in API documentation.
+- docs/.gitignore file - filters out the _site folder that is generated during local preview.
+- docs/favicon.ico and logo.svg - files for site logo and bookmark icon.
+- docs/workflows/.gitignore file - ignores bonsai layout files and svg files.
+- docs/build.ps1 file - script  used to export images for sample workflows.
+    - amend the line in the file to the new package name and source location.
+- docs/template/public folder- contains main.css and main.js which patches in `docfx-tools`.
+    - amend main.js to change the github link to the current repository.
+</code></pre>
+<ol start="8">
+<li>Add the <a href="https://github.com/bonsai-rx/docfx-tools">docfx-tools</a> submodule. This submodule contains scripts for automating SVG export from Bonsai workflows and patches the DocFx CSS templates to add workflow containers.</li>
+</ol>
+<pre><code class="lang-cmd">git submodule add https://github.com/bonsai-rx/docfx-tools docs/bonsai
+</code></pre>
+<p>If the submodule does not show up in your local copy, run these additional commands.</p>
+<pre><code class="lang-powershell">git submodule init
+git submodule update
+</code></pre>
+<h1 id="creating-and-editing-articles">Creating and Editing Articles</h1>
+<h2 id="article-organization">Article Organization</h2>
+<h3 id="navigation-bar">Navigation bar</h3>
+<p>The navigation bar at the top of the DocFX website should have 2-3 links to the main pages of the website.</p>
+<ul>
+<li>Manual - hosts documentation that explains the basic functions of the various operators in the package.</li>
+<li>Reference - generated automatically by DocFX from XML comments in the Bonsai package source code.</li>
+<li>Tutorials - optional page that would have examples or tutorials for various applications.</li>
+</ul>
+<p>To construct the navigation bar, edit the <code>docs/toc.yml</code> file to reflect the location and name of the various pages.</p>
+<pre><code class="lang-yml">- name: Manual
+  href: articles/
+- name: Reference
+  href: api/
+- name: Tutorials
+  href: articles/tutorials/
+</code></pre>
+<h3 id="table-of-contents">Table of contents</h3>
+<p>For the <code>Manual</code> and <code>Tutorials</code> pages of the website, the table of contents is built from a <code>toc.yml</code> file located in the respective folders. The table of contents for the API page is generated automatically.</p>
+<p>Getting started/Landing page - the first page of the docs website will be an <code>index.md</code> file that is located in the <code>docs</code> folder. This typically includes a description of what the package does, installation instructions (if not too complicated) and acknowledgements. To make this page the landing page, in the <code>articles/toc.yml</code> file, the getting started page should be listed as shown. This step is omitted from the tutorials <code>toc.yml</code>.</p>
+<pre><code class="lang-yml">- href: ../index.md
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Article names can be omitted as they will be taken from the first <code>Heading 1</code> element in the article.</p>
+</div>
+<p>For the rest of the articles, they can be added to the articles folder and referred to as follows.
+Article filenames should be simple and reflect either the article title or operator name (if the article is about a specific operator).</p>
+<pre><code class="lang-yml">- href: ../index.md
+- href: lds-overview.md
+</code></pre>
+<p>To organise articles into different sections, simply include a name before the links to the articles that you want to group together.</p>
+<pre><code class="lang-yml">- href: ../index.md
+- name: LinearDynamicalSystems
+- href: lds-overview.md
+- href: lds-installation-guide-windows.md
+- href: lds-installation-guide-linux.md
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>While there is another method of grouping articles together that makes a nested table of contents, we prefer this method as it expands the table of contents so that users can see all the articles at once and get to them quicker.</p>
+</div>
+<h3 id="individual-bonsai-operator-articles">Individual Bonsai operator articles</h3>
+<p>Where possible, documentation should be written for individual Bonsai operators and embedded in the <code>Manual</code> articles. The advantage of this approach is that documentation for individual operators will be appended to the automatically generated <code>Reference</code> API docs. In addition, they will also show up in the Bonsai editor when users right click on individual operators to <code>View Help</code>.</p>
+<p>For example, to create documentation for a <code>PredictPoses</code> operator that will be included in a <code>Network Inference</code> article for the <code>Bonsai.Sleap</code> package:</p>
+<ol>
+<li>Create a <code>Bonsai_Sleap_PredictPoses.md</code> article and place it in the <code>docs\apidoc</code> folder. In the markdown file, assign a UID that follows the namespace.operator format.</li>
+</ol>
+<pre><code class="lang-yml">---
+uid: Bonsai.Sleap.PredictPoses
+---
+
+Write content here.
+</code></pre>
+<ol start="2">
+<li>Create a <code>Network-Inference.md</code> article and place it in the <code>docs\articles</code> folder. In the markdown file, include a reference to the individual operator.md file.</li>
+</ol>
+<pre><code class="lang-yml">[!include[Title](~/apidoc/Bonsai_Sleap_PredictPoses.md)]
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The title is optional.</p>
+</div>
+<h3 id="tutorialsexamples-submodule">Tutorials/Examples Submodule</h3>
+<p>For packages with extensive tutorials, a separate repository can be created and imported as a submodule.
+This may be especially helpful if they contain multimedia and other large files.
+A tutorial submodule can be added with the following command.</p>
+<pre><code class="lang-cmd">git submodule add https://github.com/bonsai-rx/machinelearning-examples
+</code></pre>
+<p>In addition, the <code>docfx.json</code> file needs to be modified.
+For an example of how to setup a Tutorial submodule, refer to <a href="https://github.com/bonsai-rx/machinelearning">https://github.com/bonsai-rx/machinelearning</a> and its submodule <a href="https://github.com/bonsai-rx/machinelearning-examples">https://github.com/bonsai-rx/machinelearning-examples</a>.</p>
+<h2 id="contributor-style-guide">Contributor Style Guide</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When working on an article, first check <a href="https://bonsai-rx.org/docs/">the main documentation</a> to see what written material might already exist for that topic that could possibly be used as a reference.</p>
+</div>
+<p>With DocFX, articles are written in <a href="https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet">Markdown</a> and rendered with the <a href="https://github.com/xoofx/markdig">Markdig</a> parsing engine that supports additional markdown extensions. When writing articles, please follow the <a href="https://learn.microsoft.com/en-us/style-guide/global-communications/writing-tips">MSDN writing tips</a>. In particular:</p>
+<ul>
+<li>Keep article and section titles short and succinct so that the table of contents that appears on the left and right sidebar are easier to read (and also to assist in machine translation)</li>
+<li>Reuse operator names, properties, and descriptions in the articles and titles (do not use synonyms) so that readers may more easily follow and refer to them.</li>
+<li>Use the imperative style i.e. &quot;Link hardware triggers&quot; rather than &quot;Linking hardware triggers&quot;.</li>
+</ul>
+<h3 id="standard-formatting-for-operators-and-operator-properties">Standard formatting for operators and operator properties</h3>
+<p>When referring to operators (also known as nodes in Bonsai), place them inside a pair of backticks  (<code>`Operator_name`</code>). Link the name to the relevant documentation in the code base, using the <a href="https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html">markdown syntax for xref in DocFX</a>.</p>
+<p>For example, the <code>DigitalOutput</code> node is part of the <code>Bonsai.Arduino</code> namespace/package. To reference this you need to specify the full path to it including namespace, operator name, like so: <code>xref:Bonsai.Arduino.DigitalOutput</code>. To find out the full path for any node, right-click on the operator of interest in Bonsai and select the option &quot;Go to Definition&quot; or hit F12.</p>
+<p>When referring to operator properties, simply place the operator property name inside a pair of backticks (<code>`Operator_property_name`</code>).</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-markdown">### **Exercise 7:** Control an LED
+- Insert a [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) source.
+- Insert a [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) sink.
+- Set the `Pin` property of the [`DigitalOutput`](xref:Bonsai.Arduino.DigitalOutput) operator to 13.
+- Configure the `PortName` property.
+- Run the workflow and change the `Value` property of the [`Boolean`](xref:Bonsai.Expressions.BooleanProperty) operator.
+</code></pre>
+<h3 id="bonsai-workflows">Bonsai workflows</h3>
+<p>To include and/or reference an example workflow in an article of the documentation, first create the example workflow in a Bonsai workflow editor and save the workflow as <code>articleFileName_workflowName</code>.
+Add the <code>.bonsai</code> file to the <strong>workflows</strong> folder in the repo. In the text of the article that includes/references this example workflow, add a workflow container.</p>
+<p><strong>Example:</strong></p>
+<p>Assuming you want to include <code>custom-pulse-train_send-custom-waveform.bonsai</code>:</p>
+<pre><code class="lang-markdown">:::workflow
+![Send Custom Waveform](../workflows/custom-pulse-train_send-custom-waveform.bonsai)
+:::
+</code></pre>
+<p>Workflow images are automatically exported as SVGs by the <a href="https://github.com/bonsai-rx/docfx-tools">docfx-tools</a> submodule.
+If any of the nodes are greyed out in the SVG images when published, then the <code>config.yml</code> file in the <code>.Bonsai</code> folder needs to be updated.<br>
+For instance, if you used a <code>KeyDown</code> operator in your sample Bonsai workflow, the <code>Bonsai.Windows.Input</code> package needs to be included.</p>
+<p>Navigate to your local Bonsai installation folder, and you will find a <code>config.yml</code> that includes the necessary information to copy over to the <code>config.yml</code> file in <code>.bonsai</code> folder.
+Only copy the lines that reference the package.</p>
+<h3 id="figures">Figures</h3>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Avoid images/screenshots when possible as they do not display well across light/dark mode and do not scale well across different display sizes and resolutions. See the following sections for alternative ways of creating different content.</p>
+</div>
+<p>To include a figure or image in an article:</p>
+<ol>
+<li>Save your figure or image as a <code>.svg</code> file, naming the file using the pattern <code>[article filename]-[figure name].svg</code>.</li>
+<li>Add the figure/image to the <strong>images</strong> folder in the repo.</li>
+<li>Reference the figure in the article with the following code.</li>
+<li>(Optional) For smaller screenshots, it may help to set a max width so that the fonts do not blow up too much on desktop displays. This can be done by setting a <code>width</code> attribute on the img element directly like follows.</li>
+</ol>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-markdown">!['Editor Gallery'](~/images/editor-gallery.png){width=500}
+</code></pre>
+<h3 id="diagrams-and-charts">Diagrams and Charts</h3>
+<p>Use <a href="https://mermaid.js.org/">Mermaid</a> graphs to visualize flowcharts or pipelines.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-markdown">```mermaid
+
+flowchart LR
+
+    A([&quot;Create Python Runtime&quot;])
+    B([&quot;Load LDS Module&quot;])
+    C([&quot;Create KF Model&quot;])
+    D([&quot;Generate Observations&quot;])
+    E([&quot;Perform Inference&quot;])
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt; E
+
+```
+</code></pre>
+<pre><code class="lang-mermaid">
+flowchart LR
+    A([&quot;Create Python Runtime&quot;])
+    B([&quot;Load LDS Module&quot;])
+    C([&quot;Create KF Model&quot;])
+    D([&quot;Generate Observations&quot;])
+    E([&quot;Perform Inference&quot;])
+
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt; E
+</code></pre>
+<h3 id="property-tables">Property Tables</h3>
+<p>Highlight properties to change for a particular application by representing them as <a href="https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables">markdown pipe tables</a>.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-markdown">| Category          | Property Name       | Value                  | Description                        |    
+| ----------------  | ------------------- | ---------------------- | ---------------------------------- | 
+|  Pulse Timing     | `PulseTrainDelay`   | 0.0001 - 3600 (secs)   | The delay to start the pulse train.|
+|  Pulse Timing     | `PulseTrainDuration`| 0.0001 - 3600 (secs)   | The duration of the pulse train.   |
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Property Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pulse Timing</td>
+<td><code>PulseTrainDelay</code></td>
+<td>0.0001 - 3600 (secs)</td>
+<td>The delay to start the pulse train.</td>
+</tr>
+<tr>
+<td>Pulse Timing</td>
+<td><code>PulseTrainDuration</code></td>
+<td>0.0001 - 3600 (secs)</td>
+<td>The duration of the pulse train.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="code-snippets">Code snippets</h3>
+<p>Use code blocks to highlight code to run. Enable language specific highlighting by adding a language identifier at the beginning.</p>
+<pre><code class="lang-markdown">```powershell
+dotnet new tool-manifest 
+dotnet tool install --local docfx --version 2.75.3
+```
+</code></pre>
+<h3 id="alerts">Alerts</h3>
+<p>Use alerts to alert users to important information. Only use either the <code>Note</code> or <code>Warning</code> alerts as they do not conflict with the formatting for property names.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-markdown">&gt; [!NOTE]
+&gt; Information the user should notice even if skimming.
+
+&gt; [!WARNING]
+&gt; Dangerous certain consequences of an action.
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Information the user should notice even if skimming.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Dangerous certain consequences of an action.</p>
+</div>
+<h3 id="final-polishing-steps">Final Polishing Steps</h3>
+<p>Delete redundant blank rows in between lines and at the end of the articles. This improves code readability for future contributors.</p>
+<h1 id="testing-unpublished-packages">Testing Unpublished Packages</h1>
+<p>To write documentation for new packages or releases that have not been published to the community, test them in Visual Studio.
+Adapted from <a href="https://bonsai-rx.org/docs/articles/create-package.html">https://bonsai-rx.org/docs/articles/create-package.html</a>.</p>
+<ol>
+<li>Install <a href="https://www.visualstudio.com/">Visual Studio</a> (the community edition can be installed for free).</li>
+<li>Install Bonsai VS Extensions. Assuming Bonsai is already installed, from the Windows Start Menu, search for the &quot;Install Bonsai VS Extensions&quot; shortcut and run it.</li>
+<li>In Visual Studio, open <code>src/PackageName.sln</code> in the repo.</li>
+<li>Press F5 to open the Bonsai editor with the new package added.</li>
+<li>From here, you can make Bonsai workflows and save them as per normal.</li>
+</ol>
+<h1 id="publishing-to-github-pages">Publishing to Github Pages</h1>
+<p>Although this step is not necessary, it can be helpful if you want to check how your edits look online if the local preview is not working.</p>
+<ol>
+<li>Setup a new branch called <code>gh-pages</code> on your fork of the repository.</li>
+<li>Go to your repo settings -&gt; <code>Pages</code> -&gt; <code>Build and deployment</code> - under <code>Source</code> select <code>Deploy from a branch</code> and make sure <code>gh-pages</code> is selected.</li>
+<li>Commit your edits and push to the <code>main</code> branch of your repo fork.</li>
+<li>Under the <code>Actions</code> tab of your github repo, trigger the <code>Build docs</code> workflow manually with the <code>Run workflow</code> button. This will build the docs site on the <code>gh-pages</code> branch.</li>
+<li>Once the <code>Build docs</code> workflow has been completed, the <code>pages-build-deployment</code> workflow will run and publish your forked repo automatically.</li>
+<li>The URL for the site can be found in your <code>Pages</code> section of your repo settings.</li>
+</ol>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/bonsai-rx/docs/blob/main/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          &copy; 2024 Bonsai Foundation CIC and Contributors. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
