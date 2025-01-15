@@ -4,3 +4,7 @@
 [submodule "src/arduino"]
 	path = src/arduino
 	url = https://github.com/bonsai-rx/arduino.git
+[submodule "docfx-tools"]
+	path = docfx-tools
+	url = https://github.com/banchan86/docfx-tools_dev
+	branch = toc-template
