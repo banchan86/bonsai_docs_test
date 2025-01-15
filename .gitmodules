@@ -1,9 +1,6 @@
 [submodule "src/bonsai"]
 	path = src/bonsai
 	url = https://github.com/bonsai-rx/bonsai.git
-[submodule "docfx-tools"]
-	path = docfx-tools
-	url = https://github.com/bonsai-rx/docfx-tools
 [submodule "src/arduino"]
 	path = src/arduino
 	url = https://github.com/bonsai-rx/arduino.git

@@ -22,8 +22,7 @@
       ],
       "dest": "api",
       "filter": "filter.yml",
-      "enumSortOrder": "declaringOrder",
-      "memberLayout": "separatePages"
+      "enumSortOrder": "declaringOrder"
     }
   ],
   "build": {
