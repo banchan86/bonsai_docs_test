@@ -6,18 +6,6 @@
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
-<<<<<<< HEAD:workflows/reactive-average-example-downsample.bonsai
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT1S</rx:Period>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Mod">
-        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int64">
-          <Value>4</Value>
-        </Operand>
-=======
       <Expression xsi:type="GroupWorkflow">
         <Name>NoisySignal</Name>
         <Workflow>
@@ -42,7 +30,6 @@
             <Edge From="2" To="3" Label="Source1" />
           </Edges>
         </Workflow>
->>>>>>> reactive-usage-quantitative:workflows/reactive-average-application-downsample.bonsai
       </Expression>
       <Expression xsi:type="rx:Accumulate" />
       <Expression xsi:type="Combinator">
