@@ -11,8 +11,5 @@ The `Min` operator collects all the values from the source sequence and emits a 
 Use `Min` to report the minimum value at the end of the sequence.
 
 :::workflow
-![Minimum](../workflows/reactive-min-example.bonsai)
+![Min Example](../workflows/reactive-min-example.bonsai)
 :::
-
-> [!NOTE]
-> The [`Delay`](xref:Bonsai.Reactive.Delay) operator is used in this example only to keep the workflow open long enough to visualize the result. Since only a single value is emitted, use an [`ObjectTextVisualizer`](xref:Bonsai.Design.ObjectTextVisualizer) to visualize it.

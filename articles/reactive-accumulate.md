@@ -11,8 +11,9 @@ The `Accumulate` operator returns the current value of the cumulative sum each t
 Use `Accumulate` to continuously track a value by adding up the changes over time in a sequence.
 
 :::workflow
-![Track value](../workflows/reactive-accumulate-example.bonsai)
+![Accumulate Example](../workflows/reactive-accumulate-example.bonsai)
 :::
 
 ### Alternative
+
 Use [`Sum`](xref:Bonsai.Reactive.Sum) instead to yield a single value at the end of a sequence.
