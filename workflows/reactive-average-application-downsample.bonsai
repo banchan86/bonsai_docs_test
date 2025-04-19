@@ -31,7 +31,6 @@
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="rx:Accumulate" />
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:WindowCount">
           <rx:Count>3</rx:Count>
