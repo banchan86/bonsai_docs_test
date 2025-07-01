@@ -30,12 +30,12 @@ Once you have found which operator you want to insert, you can place it by doubl
 Another way to quickly find operators is to use the `Search` textbox. Any text inserted here is matched against available operators, subjects, or namespaces for a match in any order. This means you can search not only for a specific operator name but also by category names to locate all the operators in a namespace (e.g. try typing `Arduino`).
 
 > [!Tip]
-> You can directly type and search for operator names when the `Workflow` panel has the input focus. This allows you to simply start typing an operator name and directly select which operator you want with the up/down arrow keys. Once you have the right operator, press the `Enter` key to place it. You can repeat the process multiple times to very quickly chain a sequence of operators.
+> You can directly type and search for operator names when the `Workflow` panel has the input focus. This allows you to simply start typing an operator name and directly select which operator you want with the up/down arrow keys. Once you have the right operator, press the <kbd>Enter</kbd> key to place it. You can repeat the process multiple times to very quickly chain a sequence of operators.
 
 Another useful function of the `Search` textbox is to find existing instances of the selected toolbox operator in the workflow. Once you select an operator in the toolbox, you can use the `Find Next` or `Find Previous` commands to jump into the next instance of the operator, subject, or workflow extension, starting from the current cursor position.
 
 > [!Tip]
-> You can browse through the reference documentation to learn more about each operator in the `Toolbox` by pressing `F1` or selecting `View Help` from the context menu.
+> You can browse through the reference documentation to learn more about each operator in the `Toolbox` by pressing <kbd>F1</kbd> or selecting `View Help` from the context menu.
 
 ## Workflow
 
@@ -105,69 +105,70 @@ Most properties can be configured simply by changing the text value in the corre
 
 ## Actions and Shortcuts
 
+> [!TIP]
+> As previously mentioned, right-clicking to bring up the context menu is the most useful action to discover a list of available commands, which will vary depending on the  editor panel you right-click in and the current selection.
+
 Below is a summary of the most used actions and shortcuts in the workflow editor:
 
 # [Mouse Controls](#tab/mouse-controls)
 
 | Action                             | Mouse Controls |
 | ---------------------------------- | -------------- | 
-| New workflow                       | In the `Toolbar` panel: <li> Click the `New` (document) button |
-| Open workflow                      | In the `Toolbar` panel: <li> Click the `Open` (folder) button |
-| Save workflow                      | In the `Toolbar` panel: <li> Click the `Save` (disk) button |
-| Run workflow                       | In the `Toolbar` panel: <li> Click the `Start` (play) button |
-| Stop workflow                      | In the `Toolbar` panel: <li> Click the `Stop` (square) button |
-| Undo action                        | In the `Toolbar` panel: <li> Click the `Undo` (left-facing arrow) button |
-| Redo action                        | In the `Toolbar` panel: <li> Click the `Redo` (right-facing arrow) button |
-| Insert operator                    | In the `Toolbox` panel, choose any of these options: <li> Select the operator, drag-and-drop to the `Workflow` panel <li>Right-click the operator,  select either of the `Insert` options <li> Double-click the operator <br><br>By default the operator will be placed after a node that is selected in the `Workflow` panel. If a connection can be formed, the two nodes will be connected. <br><br> To insert the operator before a selected node, hold down the `Shift` key together with any of the above actions. |
+| Insert operator                    | In the `Toolbox` panel, choose any of these options: <li> Select the operator, drag-and-drop to the `Workflow` panel <li> Right-click the operator,  select either of the `Insert` options <li> Double-click the operator <br><br> By default the operator will be placed after a node that is selected in the `Workflow` panel. If a connection can be formed, the two nodes will be connected. <br><br> To insert the operator before a selected node, hold down the <kbd>Shift</kbd> key together with any of the above actions. |
+| Replace operator                   | In the `Toolbox` panel: <li> With a node already selected in the `Workflow` panel, right-click the operator and select `Replace` |
 | Remove operator                    | In the `Workflow` panel: <li> Right-click the operator,  select `Remove` |
 | Move or duplicate operator         | In the `Workflow` panel: <li> Right-click the operator, select `Cut` or `Copy`<li> Right-click another node or anywhere else in the panel, select `Paste` |
 | Create branch                      | In the `Toolbox` panel: <li> With a node already selected in the `Workflow` panel,  right-click the operator and select `Create Branch` |
 | Connect operators                  | In the `Workflow` panel, choose any of these options: <li> Right-click the source node, select `Create Connection` and left-click on the target node <li> Drag the source node and drop it on the target node |
-| Disconnect operators               | In the `Workflow` panel, choose any of these options: <li> Right-click the source node, select `Remove Connection` and left-click on the target node <li> Hold down `Shift`, drag the source node and drop it on the target node |
+| Disconnect operators               | In the `Workflow` panel, choose any of these options: <li> Right-click the source node, select `Remove Connection` and left-click on the target node <li> Hold down <kbd>Shift</kbd>, drag the source node and drop it on the target node |
 | Reorder operators                  | In the `Workflow` panel: <li> Right-click the source node, select `Reorder Connection` and left-click on the target node |
-| Select multiple nodes              | In the `Workflow` panel: <li> Click on an empty space and drag a box around the nodes to be selected <br><br> Hold `Ctrl` while clicking on a node to add/remove it from the current selection. |
+| Select multiple nodes              | In the `Workflow` panel: <li> Click on an empty space and drag a box around the nodes to be selected <br><br> Hold <kbd>Ctrl</kbd> while clicking on a node to add/remove it from the current selection. <br><br> Many operations can be performed on multi-node selections or node groups (e.g., delete, create connections, create a node group, etc.). |
 | Group operators                    | In the `Workflow` panel: <li> Right-click on a multi-node selection and select a group type from the `Group` dropdown <br><br> On an existing node group, you can do the same action to change the group type. |
 | Ungroup node group                 | In the `Workflow` panel: <li> Right-click on the group node and select `Ungroup` |
-| Open operator editor or node group | In the `Workflow` panel, choose any of these options: <li> When workflow is not running: double-click <li> When workflow is running: `Ctrl` + double-click |
+| Open operator editor or node group | In the `Workflow` panel, choose any of these options: <li> When workflow is not running: double-click <li> When workflow is running: <kbd>Ctrl</kbd> + double-click |
 | Open visualizer                    | In the `Workflow` panel, choose any of these options: <li> Double-click on the target node <li> Right-click on the target node and select a visualizer from the `Show Visualizer` dropdown <br><br> This action is only available when the workflow is running. |
-| Close editor/visualizer            | In the `Workflow` panel: <li> Click on the `X` button on the top right of the editor/visualizer |
-| Disable operator or node group     | In the `Workflow` panel: <li> Right-click on the operator/node group and select `Disable` |
-| Enable operator or node group      | In the `Workflow` panel: <li> Right-click on the operator/node group  and select `Enable` |
-| Find operator in workflow          | In the `Toolbox` panel: <li> Search for the operator, right-click on it and choose either `Find Next` or `Find Previous` <br><br> In the `Workflow Panel`: <li> Find a visible instance of the operator, click on `Find Next` and `Find Previous` buttons in the `Toolbar` Panel |
-| Find visualizer source             | N/A |
-| Open context menu                  | In the `Workflow` panel: <li> Right-click any node, multi-node selection or empty space <br><br> Depending on what is currently selected, the context menu may show different available actions. |
+| Disable node                       | In the `Workflow` panel: <li> Right-click on the node and select `Disable` |
+| Enable node                        | In the `Workflow` panel: <li> Right-click on the node and select `Enable` |
+| Toggle watch                       | In the `Workflow` panel, choose any of these options: <li> Select the node, click on the `Toggle Watch` button in the toolbar <li> Right-click the node and select `Toggle Watch` from the context menu |
+| New tab or window                  | In the `Workflow` panel, choose any of these options: <li> Right-click the tab/window bar, select either of the `Open` options <li> Right-click the node, select either of the `Open` options <br><br> In the `Explorer` panel: <li> Right-click the nested node label, select either of the `Open` options |
+| Find node                          | In the `Toolbox` panel: <li> Search for the operator, right-click on it and choose any of the `Find` options <br><br> In the `Workflow Panel`, choose any of these options: <li> Select the node and click on the `Find Next` and `Find Previous` buttons in the `Toolbar` <li> Right-click the node and select `Find All References` |
 | View help                          | In the `Workflow` panel: <li> Right-click on the operator and select `View Help` |
+| Go to definition                   | In the `Workflow` panel: <li> Right-click on the operator and select `Go To Definition` |
 
 # [Keyboard Controls](#tab/keyboard-controls)
 
 | Action                             | Keyboard Controls |
 | ---------------------------------- | ----------------- | 
-| New workflow                       | `Ctrl`+`N` |
-| Open workflow                      | `Ctrl`+`O` |
-| Save workflow                      | `Ctrl`+`S` |
-| Run workflow                       | `F5` |
-| Stop workflow                      | `Shift`+`F5`|
-| Undo action                        | `Ctrl`+`Z` |
-| Redo action                        | `Ctrl`+`Y` |
-| Insert operator                    | Insert after selected node: `Enter` <br> Insert before selected node: `Shift`+`Enter` |
-| Remove operator                    | `Del` |
-| Move or duplicate operator         | Cut: `Ctrl`+`X` <br> Copy: `Ctrl`+`C` <br> Paste after selected node: `Ctrl`+`V`<br> Paste before selected node: `Shift`+`Ctrl`+`V` |
-| Create branch                      | `Alt` + an existing shortcut for creating a new operator <br> e.g., `Alt`+`Ctrl`+`V`|
-| Connect operators                  | N/A |
-| Disconnect operators               | N/A |
-| Reorder operators                  | N/A |
-| Select multiple nodes              | `Shift`+`Arrow Keys` |
-| Group operators                    | `Ctrl`+`G` |
-| Ungroup node group                 | `Ctrl`+`Shift`+`G` |
-| Open operator editor or node group | Workflow not running: `Enter` <br> Workflow running: `Ctrl`+`Enter` |
-| Open visualizer                    | `Enter` <br> This action is only available when the workflow is running. |
-| Close editor/visualizer            | `Esc` |
-| Disable operator or node group     | `Ctrl`+`D` |
-| Enable operator or node group      | `Shift`+`Ctrl`+`D` |
-| Find operator in workflow          | Find next: `F3` <br> Find previous: `Shift`+`F3`|
-| Find visualizer source             | With the visualizer highlighted: `Ctrl`+`Backspace` |
-| Open context menu                  | `Shift`+`F10` |
-| View help                          | `F1` |
-
-> [!Note]
-> Many operations can be performed on multi-node selections or node groups (e.g., delete, create connections, create a node group, etc.).
+| New workflow                       | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> |
+| Open workflow                      | <kbd>Ctrl</kbd>+<kbd>O</kbd> |
+| Save workflow                      | <kbd>Ctrl</kbd>+<kbd>S</kbd> |
+| Save workflow extension            | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> |
+| Start workflow                     | <kbd>F5</kbd> |
+| Start workflow without debugging   | <kbd>Ctrl</kbd>+<kbd>F5</kbd> |
+| Stop workflow                      | <kbd>Shift</kbd>+<kbd>F5</kbd> |
+| Export Image                       | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> |
+| Copy Image                         | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> |
+| Undo action                        | <kbd>Ctrl</kbd>+<kbd>Z</kbd> |
+| Redo action                        | <kbd>Ctrl</kbd>+<kbd>Y</kbd> |
+| Insert operator                    | Insert after selected node: <kbd>Enter</kbd> <br> Insert before selected node: <kbd>Shift</kbd>+<kbd>Enter</kbd> |
+| Replace operator                   | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Enter</kbd> |
+| Remove operator                    | <kbd>Del</kbd> |
+| Move or duplicate operator         | Cut: <kbd>Ctrl</kbd>+<kbd>X</kbd> <br> Copy: <kbd>Ctrl</kbd>+<kbd>C</kbd> <br> Paste after selected node: <kbd>Ctrl</kbd>+<kbd>V</kbd> <br> Paste before selected node: <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>V</kbd> |
+| Create branch                      | <kbd>Alt</kbd> + an existing shortcut for inserting a new operator <br> e.g., <kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>V</kbd> |
+| Select multiple nodes              | <kbd>Shift</kbd>+[ <kbd>↑</kbd> / <kbd>↓</kbd> / <kbd>←</kbd> / <kbd>→</kbd> ] |
+| Select all nodes                   | <kbd>Ctrl</kbd>+<kbd>A</kbd> |
+| Group operators                    | <kbd>Ctrl</kbd>+<kbd>G</kbd> |
+| Ungroup node group                 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd> |
+| Open operator editor or node group | Workflow not running: <kbd>Enter</kbd> <br> Workflow running: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> |
+| Open visualizer                    | <kbd>Enter</kbd> <br> This action is only available when the workflow is running. |
+| Close editor/visualizer            | <kbd>Esc</kbd> |
+| Disable node                       | <kbd>Ctrl</kbd>+<kbd>D</kbd> |
+| Enable node                        | <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>D</kbd> |
+| Toggle watch                       | <kbd>Shift</kbd>+<kbd>F9</kbd> |
+| New tab or window                  | Tab: <kbd>Ctrl</kbd>+<kbd>T</kbd> <br> Window: <kbd>Ctrl</kbd>+<kbd>N</kbd> |
+| Close tab or window                | <kbd>Ctrl</kbd>+<kbd>F4</kbd> |
+| Find node                          | Find next: <kbd>F3</kbd> <br> Find previous: <kbd>Shift</kbd>+<kbd>F3</kbd> <br> Find all references: <kbd>Shift</kbd>+<kbd>F12</kbd> |
+| Find visualizer source             | With the visualizer highlighted: <kbd>Ctrl</kbd>+<kbd>Backspace</kbd> |
+| Open context menu                  | <kbd>Shift</kbd>+<kbd>F10</kbd> |
+| View help                          | <kbd>F1</kbd> |
+| Go to definition                   | <kbd>F12</kbd> |
